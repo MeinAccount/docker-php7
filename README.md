@@ -1,2 +1,2 @@
-# docker-php7
+# Docker PHP7
 PHP7 FPM with gd, mbstring, PDO (MySQL), MySQLi and zip
