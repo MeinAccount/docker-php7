@@ -1,4 +1,5 @@
 FROM php:7-fpm
+RUN mkdir -p /usr/share/man/man1
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libjpeg-dev \
