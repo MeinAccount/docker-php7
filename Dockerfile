@@ -7,10 +7,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     zlib1g-dev libicu-dev g++ \
     libxslt-dev \
+    libc-client-dev libkrb5-dev \
     zip unzip imagemagick node-less \
  && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
-RUN docker-php-ext-configure imap --with-imap-ssl --with-kerberos
+RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl && docker-php-ext-install imap
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install \
     gd \
@@ -18,10 +19,10 @@ RUN docker-php-ext-install \
     pdo \
     pdo_mysql \
     mysqli \
-    imap \
     zip \
     intl \
-    xsl
+    xsl \
+    opcache
 
 WORKDIR /var/www
 COPY php.ini /usr/local/etc/php/
