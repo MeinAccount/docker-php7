@@ -22,7 +22,8 @@ RUN docker-php-ext-install \
     zip \
     intl \
     xsl \
-    opcache
+    opcache \
+    soap
 
 WORKDIR /var/www
 COPY php.ini /usr/local/etc/php/
